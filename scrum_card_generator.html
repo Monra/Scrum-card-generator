@@ -1,101 +1,101 @@
 <!DOCTYPE html>
 <html itemtype="http://schema.org/WebPage" itemscope="">
-	<head>
-		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-		<title></title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-		<script src="http://js-tables.googlecode.com/svn/trunk/jquery.csv.js"></script>
-		<style type="text/css">
-		.content
-		{
-			width: 600px;
-			margin: auto;
-		}
-		.story_item
-		{
-			position: relative;
-			background-color: rgba(100,100,100,0.2);
-		    border: 1px solid rgba(100,100,100,0.2);
-			padding: 15px;
-    		border-radius: 5px 5px 5px 5px;
-    	    margin-top: 20px;
-    		min-height: 200px;
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <title></title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="http://js-tables.googlecode.com/svn/trunk/jquery.csv.js"></script>
+        <style type="text/css">
+        .content
+        {
+            width: 600px;
+            margin: auto;
         }
-		.story_item_text
-		{
-			width: 470px;			
-		}
-		.identification
-		{
-			position: absolute;
-			top: 10px;
-			left: 10px;		
-		}
-		.identification span
-		{
-			display:none;
-		}
-		.numbers
-		{
-			width: 80px;
-			position: absolute;
-			top: 47px;
-			right: 15px;
-			padding: 10px;
-    		border-radius: 5px 5px 5px 5px;
-   		}
-		.numbers dd
-		{
-		    margin: 0px;
-		    padding: 5px;
-		    text-align:center;
-		    border: 1px solid rgba(100,100,100,0.2);
-    		border-radius: 5px 5px 5px 5px;
-		}
-		dt
-		{
-			font-weight: bolder;
-		}
-		textarea
-		{
-			width: 600px;
-			height: 300px;
-		}
-		.page_break
-		{
-			page-break-before:always;
-		}
-		</style>
-		<script>
-			$(document).ready(function(){
-			 $('form').submit(function(event) {event.preventDefault();});
-			
-			 $(".button_generate").click(function(event){
-			    event.preventDefault();
-			    csv_data = $.csv()($("#csv_data").val());
-			    $.each(csv_data, function(index, value) {
-			    	  template = '<article class="story_item"><header><h2>:title</h2></header><dl class="story_item_text"><dt>User Story</dt><dd>:user_story</dd></dl><dl class="story_item_text"><dt>How to test</dt><dd>:how_to_test</dd></dl><section class="identification"><span>Id</span>#:id</section><section class="numbers"><dl><dt>Area</dt><dd>:area</dd></dl><dl><dt>Estimate</dt><dd>:estimate</dd></dl></section></article>';
-			    	  template = template.replace(":id",value[0] === undefined ? "&nbsp;" : value[0]);
-					  template = template.replace(":title",value[1] === undefined ? "&nbsp;" : value[1]);
-					  template = template.replace(":user_story",value[2] === undefined ? "&nbsp;" : value[2]);
-					  template = template.replace(":how_to_test",value[3] === undefined ? "&nbsp;" : value[3]);
-					  template = template.replace(":area",value[4] === undefined ? "&nbsp;" : value[4]);
-					  template = template.replace(":estimate",value[5] === undefined ? "&nbsp;" : value[5]);
-			    	  $(".content").append(template); 
-			    	});
-				 $(".story_item:nth-child(3n+2)").addClass("page_break")
-				 $(".story_item:first").removeClass("page_break")
-				 $("form").hide();
-			    });
-			});
-		</script>
-	</head>
-	<body>
-		<div class="content">
-			<form>
-				<textarea id="csv_data"></textarea>
-				<input class="button_generate" type="button" value="Generate" />
-			</form>
-		</div>
-	</body>
+        .story_item
+        {
+            position: relative;
+            background-color: rgba(100,100,100,0.2);
+            border: 1px solid rgba(100,100,100,0.2);
+            padding: 15px;
+            border-radius: 5px 5px 5px 5px;
+            margin-top: 20px;
+            min-height: 200px;
+        }
+        .story_item_text
+        {
+            width: 470px;
+        }
+        .identification
+        {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .identification span
+        {
+            display:none;
+        }
+        .numbers
+        {
+            width: 80px;
+            position: absolute;
+            top: 47px;
+            right: 15px;
+            padding: 10px;
+            border-radius: 5px 5px 5px 5px;
+           }
+        .numbers dd
+        {
+            margin: 0px;
+            padding: 5px;
+            text-align:center;
+            border: 1px solid rgba(100,100,100,0.2);
+            border-radius: 5px 5px 5px 5px;
+        }
+        dt
+        {
+            font-weight: bolder;
+        }
+        textarea
+        {
+            width: 600px;
+            height: 300px;
+        }
+        .page_break
+        {
+            page-break-before:always;
+        }
+        </style>
+        <script>
+            $(document).ready(function(){
+             $('form').submit(function(event) {event.preventDefault();});
+
+             $(".button_generate").click(function(event){
+                event.preventDefault();
+                csv_data = $.csv()($("#csv_data").val());
+                $.each(csv_data, function(index, value) {
+                      template = '<article class="story_item"><header><h2>:title</h2></header><dl class="story_item_text"><dt>User Story</dt><dd>:user_story</dd></dl><dl class="story_item_text"><dt>How to test</dt><dd>:how_to_test</dd></dl><section class="identification"><span>Id</span>#:id</section><section class="numbers"><dl><dt>Area</dt><dd>:area</dd></dl><dl><dt>Estimate</dt><dd>:estimate</dd></dl></section></article>';
+                      template = template.replace(":id",value[0] === undefined ? "&nbsp;" : value[0]);
+                      template = template.replace(":title",value[1] === undefined ? "&nbsp;" : value[1]);
+                      template = template.replace(":user_story",value[2] === undefined ? "&nbsp;" : value[2]);
+                      template = template.replace(":how_to_test",value[3] === undefined ? "&nbsp;" : value[3]);
+                      template = template.replace(":area",value[4] === undefined ? "&nbsp;" : value[4]);
+                      template = template.replace(":estimate",value[5] === undefined ? "&nbsp;" : value[5]);
+                      $(".content").append(template);
+                    });
+                 $(".story_item:nth-child(3n+2)").addClass("page_break")
+                 $(".story_item:first").removeClass("page_break")
+                 $("form").hide();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <form>
+                <textarea id="csv_data"></textarea>
+                <input class="button_generate" type="button" value="Generate" />
+            </form>
+        </div>
+    </body>
 </html>
