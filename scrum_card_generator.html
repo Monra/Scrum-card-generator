@@ -11,14 +11,14 @@
             width: 600px;
             margin: auto;
         }
-        .story_item
+        .story_item, .story_description
         {
             position: relative;
             background-color: rgba(100,100,100,0.2);
             border: 1px solid rgba(100,100,100,0.2);
             padding: 15px;
             border-radius: 5px 5px 5px 5px;
-            margin-top: 20px;
+            margin-bottom: 20px;
             min-height: 200px;
         }
         .story_item_text
@@ -93,6 +93,34 @@
     <body>
         <div class="content">
             <form>
+                <article class="story_description">
+                    <header><h1>Scrum card generator</h1></header>
+                    <p>The input of the file is 6 columns csv formatted text</p>
+                    <dl>
+                        <dt>Card number</dt>
+                        <dd>Card number of your choice that will displayed in the upper corner</dd>
+                    </dl>
+                    <dl>
+                        <dt>Title</dt>
+                        <dd>Title of the card that just sums up what the story is about</dd>
+                    </dl>
+                    <dl>
+                        <dt>User story</dt>
+                        <dd>The actual user story</dd>
+                    </dl>
+                    <dl>
+                        <dt>How to demo</dt>
+                        <dd>How to demo describes which steps are needed to be made and which result is to be expected</dd>
+                    </dl>
+                    <dl>
+                        <dt>Area</dt>
+                        <dd>An area if to group the story with.</dd>
+                    </dl>
+                    <dl>
+                        <dt>Estimate</dt>
+                        <dd>The estimate of difficulty and size of the story.</dd>
+                    </dl>
+                </article>
                 <textarea id="csv_data"></textarea>
                 <input class="button_generate" type="button" value="Generate" />
             </form>
